@@ -1,8 +1,6 @@
-// content.js
-
-document.addEventListener('mouseup', () => {
-  const selectedText = window.getSelection().toString();
-  if (selectedText) {
+document.addEventListener('mouseup', (event) => {
+  const selectedText = window.getSelection().toString().trim();
+  if (selectedText && !event.target.closest('a')) {
     const range = window.getSelection().getRangeAt(0);
     const span = document.createElement('span');
     span.style.backgroundColor = 'yellow';
